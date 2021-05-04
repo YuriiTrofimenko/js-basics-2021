@@ -1,3 +1,5 @@
+'use strict'
+
 /* Constants n variables */
 
 // const four = 4
@@ -204,7 +206,7 @@ console.log(integers) */
 uSort(strings, (a, b) => b.localeCompare(a))
 console.log(strings) */
 
-const people = [
+/* const people = [
   {
     'name': 'John',
     'age': 30
@@ -221,7 +223,7 @@ const people = [
     'name': 'Maria',
     'age': 20
   }
-]
+] */
 
 // uSort(people, (a, b) => b.name.localeCompare(a.name))
 // uSort(people, (a, b) => b['name'].localeCompare(a['name']))
@@ -235,12 +237,155 @@ const people = [
   .map(person => `${person.name} (${person.age} y.o.)`)
   .forEach(person => console.log(person)) */
 
-const filteredPeople =
+/* const filteredPeople =
   people.sort((a, b) => a.name.localeCompare(b.name))
     .filter(person => person.age > 21)
 const ageSum = filteredPeople.reduce((result, person) => result += person.age, 0)
 
-console.log(ageSum / filteredPeople.length)
+console.log(ageSum / filteredPeople.length) */
 
 // Some changes ...
 
+/* OOP */
+
+/* function regularFunction () {
+  console.log('regularFunction')
+  let x = 2 * 2
+  return x
+}
+
+const result = regularFunction()
+console.log(result) */
+
+/* function ClassFunction () {
+  this.name = 'Noname'
+  this.demoMethod = () => {
+    console.log(this.name)
+  }
+} */
+
+/* function ClassFunction (nameString) {
+  if (nameString) {
+    this.name = nameString
+  } else {
+    this.name = 'Noname'
+  }
+  this.demoMethod = () => {
+    console.log(this.name)
+  }
+} */
+
+/* function ClassFunction (nameString) {
+  if (!new.target) {
+    return new ClassFunction(nameString)
+  }
+  if (nameString) {
+    this.name = nameString
+  } else {
+    this.name = 'Noname'
+  }
+  this.demoMethod = () => {
+    console.log(this.name)
+  }
+} */
+
+// const result2 = new ClassFunction()
+// const result2 = new ClassFunction('MyName')
+/* const result2 = ClassFunction('MyName')
+console.log(result2)
+result2.demoMethod() */
+
+// const x = Number(10)
+// const y = new Number(20) // wrong!
+// const y = Number(20)
+
+// console.log(x)
+// console.log(y)
+/* console.log(typeof x, typeof y)
+if (typeof x === 'number' && typeof y === 'number') {
+  console.log(x + y)
+} */
+
+/* const o1 = {data: 'some data ...'}
+// ...
+o1['anotherData'] = '123'
+o1.yetAnotherData = '456'
+console.log(o1) */
+
+/* const obj1 = {}
+Object.defineProperty(obj1, "x", { value: 42, writable: false })
+obj1.x = 9 // выдаст TypeError
+console.log(obj1.x) */
+
+/* const obj2 = { get x() { return 17; } }
+obj2.x = 5; // выдаст TypeError
+console.log(obj2.x) */
+
+/* const fixed = {prop1: 9}
+Object.preventExtensions(fixed)
+fixed.newProp = "ohai" // выдаст TypeError */
+
+/* let user = {
+  name: "John",
+  age: 30
+}
+
+let clone = Object.assign({password: 123456}, user)
+let copy = user */
+
+// copy.name = "Copy"
+// clone.name = "Clone"
+
+// console.log(user)
+// console.log(clone)
+
+// const arr = [{name: "John", age: 30}, {name: "Bill", age: 65}]
+// const arr2 = [arr[0], arr[1]]
+// const arr2 = [...arr]
+// const arr2 = arr.map(element => Object.assign({}, element))
+// arr2[0].name = 'Tom'
+// console.log(arr)
+
+/* let user = {
+  name: "John",
+  money: 1000,
+  [Symbol.toPrimitive](hint) {
+    console.log(`hint: ${hint}`);
+    return hint == "string" || hint == "default" ? this.name : this.money;
+  }
+} */
+
+// console.log(2 + 2)
+// console.log(user + 2000)
+// console.log(user + ' 2000')
+// console.log(user)
+
+/* alert(user);
+console.log(user);
+console.log(+user);
+console.log(user + 500); */
+
+/* const map = new Map()
+map.set('John', 30)
+map.set('Bill', 65)
+console.log(map.has('John'))
+console.log(map.has('Tom'))
+console.log(map.get('John')) */
+/* map.get(key)
+map.has(key)
+map.delete(key)
+map.clear()
+map.size */
+
+const array = []
+const set = new Set()
+set.add('John')
+set.add('Bill')
+set.add('Tom')
+set.add('John')
+console.log(set)
+/* array.push('John')
+array.push('Bill')
+array.push('Tom')
+array.push('John')
+console.log(array) */
