@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 /* Constants n variables */
 
@@ -377,15 +377,139 @@ map.delete(key)
 map.clear()
 map.size */
 
-const array = []
+/* const array = []
 const set = new Set()
 set.add('John')
 set.add('Bill')
 set.add('Tom')
 set.add('John')
-console.log(set)
+console.log(set) */
 /* array.push('John')
 array.push('Bill')
 array.push('Tom')
 array.push('John')
 console.log(array) */
+
+/* const sum = 7
+ const numbers = [1, 8, 5, 3, 2, 7, 3, 2, 9, 0, -2, 9, 16, 14]
+ const numberPairs = new Map()
+ for (let i = 0; i < numbers.length; i++) {
+   const currentNumber = numbers[i]
+   let secondNumber
+   for (let j = 0; j < numbers.length; j++) {
+   if (i != j) {
+     secondNumber = numbers [j]
+     if ((currentNumber + secondNumber === sum)) {
+       if (numberPairs.has(secondNumber)) {
+         if (numberPairs.get(secondNumber) === currentNumber) {
+           continue
+         }
+       }
+       numberPairs.set(currentNumber, secondNumber)
+     }
+   }
+ }
+} 
+numberPairs.forEach((value, key) => console.log(`${value} - ${key}`)) */
+
+/* const sum = 7
+const numbers = [1, 8, 5, 3, 2, 7, 3, 2, 9, 0, -2, 9, 16, 14]
+const numberMap = new Map()
+for (let i = 0; i < numbers.length; i++) {
+  // в словарь элементов "число из массива - сколько раз встречается"
+  // добавляем в качестве ключей все числа массива,
+  // а в качестве значений:
+  // 1. если пара с таким ключем отсутствует в словаре -- 1;
+  // 2. если пара с таким ключом уже есть в словаре -- прошлое значение + 1;
+  numberMap.set(numbers[i], numberMap.has(numbers[i]) ? numberMap.get(numbers[i]) + 1 : 1)
+}
+const numberPairs = new Map()
+numberMap.forEach((value, number) => {
+  // 1. numberMap.get(sum - number)
+  // разность суммы и текущего числа должна встречаться в частотном словаре в качестве ключа
+  // 2. &&
+  // при этом не должно быть повторов, то есть:
+  // 2.1 number < sum - number
+  // текущее число меньше второго слагаемого (то есть разности суммы и текущего числа),
+  // например, 5 не меньше 2, а 2 - меньше 5, и выбираем в результат только вторую комбинацию
+  // ||
+  // либо
+  // 2.2 (number == sum - number) && (numberMap.get(number) > 1)
+  // текущее число равно второму (разность суммы и текущего числа равна текущему числу),
+  // &&
+  // numberMap.get(number) > 1
+  // при этом текущее число должно встречаться более 1 раза,
+  // например, сумма = 8, и дважды или более встречается число 4,
+  // так что 4 = 8 - 4
+  if (numberMap.has(numberMap.get(sum - number)) && ((number > sum - number) || ((number === sum - number) && (numberMap.get(number) > 1)))) numberPairs.set(number, sum - number)
+})
+numberPairs.forEach((value, key) => console.log(`${value} - ${key}`)) */
+
+/* console.log('start')
+setTimeout(() => {
+  console.log('done')
+}, 0)
+console.log('end') */
+
+/* const token = setInterval(() => {
+  console.log('tic')
+}, 3000)
+console.log('-')
+const token2 = setInterval(() => {
+  console.log('tak')
+}, 2000)
+console.log('-')
+setTimeout(() => {
+  clearInterval(token)
+  clearInterval(token2)
+}, 12000)
+console.log('-') */
+
+/* function asyncFun1 () {
+  return fib(45)
+} 
+const result = asyncFun1()
+const token = setInterval(() => {
+  console.log('.')
+}, 1000)
+console.log(result)
+clearInterval(token)
+*/
+
+/* let token
+function asyncFun1 () {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        token = setInterval(() => {
+          console.log('.')
+        }, 1000)
+        resolve(fib(45))
+      } catch (error) {
+        reject(error)
+      }
+    }, 0)
+  })
+}
+
+const promise = asyncFun1()
+console.log('start')
+promise.then((result) => {
+  console.log(result)
+}).catch((error) => {
+  console.log(error)
+}).finally(() => {
+  animation = false
+  console.log('fin')
+  clearInterval(token)
+}) */
+/* do {
+  console.log('.')
+  console.log(animation)
+} while (animation) */
+
+const fetch = require("node-fetch")
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  // .then((result) => console.log(result))
+  .then((result) => result.json())
+  .then((data) => console.log(data))
